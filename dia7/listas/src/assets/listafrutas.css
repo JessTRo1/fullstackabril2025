@@ -1,0 +1,32 @@
+.fruit-list {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 40vw;
+  margin: 1.25rem;
+}
+
+.title {
+  color: #2c3e50;
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.fruit-item {
+  padding: 8px 16px;
+  margin: 5px 0;
+  background: white;
+  color: black;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.total-count {
+  font-weight: bold;
+  text-align: center;
+  color:black
+}
