@@ -6,11 +6,23 @@
     position: relative;
     top: .5vw;
     left: 0;
-    height: 80vh;
+    height: 100vh;
     width: 100vw;
 }
 
 .main-title {
     font-size: 2rem;
-    align-self: flex-start;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        transform: translateY(10vh);
+    }
 }

@@ -5,7 +5,7 @@ import './header.css';
 const Header = ({ name, menu }) => {
   return (
     <header>
-      <h1>{name}</h1>
+      <h1 className="header-title">{name}</h1>
       {menu && (
         <nav>
           {menu.map((item, index) => (
