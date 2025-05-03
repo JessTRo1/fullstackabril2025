@@ -1,0 +1,17 @@
+.custom-button {
+    margin: 4rem;
+    padding: .625rem 1.25rem;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-button:hover {
+    box-shadow: 4px 4px 8px #a3b1c6, 0 0 20px #ffffff;
+    transform: translateY(-4px);
+    cursor: pointer;
+  }

@@ -4,7 +4,7 @@ body {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  background-color: #373737;
+  
 }
 
 .title {
@@ -62,7 +62,7 @@ button:hover {
 
 @media (min-width: 1024px) {
   .title {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .calculator {
     width: 30vw;
@@ -79,7 +79,7 @@ button:hover {
     height: 55vh;
   }
   .button {
-    width: 8vw;
+    width: 6.5vw;
     font-size: 1.5rem;
     margin: 0.25rem;
   }
