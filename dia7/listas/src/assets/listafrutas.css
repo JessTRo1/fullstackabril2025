@@ -1,8 +1,8 @@
-.fruit-list {
+.fruit-list, .task-list {
   background: #f8f9fa;
   padding: 20px;
   border-radius: 8px;
-  width: 20vw;
+  width: 25vw;
   margin: 5rem;
 }
 
@@ -16,13 +16,20 @@
   padding: 0;
 }
 
-.fruit-item {
+.fruit-item, .task-item, .no-tasks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   padding: 8px 16px;
   margin: 5px 0;
   background: white;
-  color: black;
+  font-size: 1.2rem;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.checkbox {
+ margin: 0 .3125rem;
 }
 
 .total-count {
