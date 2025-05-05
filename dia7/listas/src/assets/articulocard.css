@@ -1,0 +1,19 @@
+
+.title {
+display: flex;
+flex-direction: row;
+justify-content: center;
+padding: 8px 16px;
+margin: 15px 0;
+background: white;
+font-size: 1.2rem;
+border-radius: 4px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);  
+}
+
+.content {
+text-align: center;
+    background: #f8f9fa;
+    padding: 10px;
+    border: none;
+}

@@ -1,0 +1,66 @@
+.usuarios-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgb(237, 237, 237) 0%, rgb(108, 108, 108) 100%);
+    width: 60vw;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 4rem;
+}
+
+.tabla-usuarios {
+    display: table; 
+    table-layout: fixed; 
+    width: 100%; 
+    margin: 1.25rem;
+    font-size: 1.5rem;
+    padding: 10px;
+    
+}
+
+.tabla-header {
+    margin: 0 0 2rem 0;
+}
+
+.tabla-header-item {
+    text-align: center; 
+    padding: 10px; 
+    margin: 1.25rem 3rem;
+    font-size: 1.5rem;
+    color: #555;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+}
+
+.tabla-body {
+    flex-direction: column;
+} 
+
+.tabla-body-row {
+    justify-content: space-around;
+    align-items: center;
+    margin: .5rem;
+    font-size: 1.5rem;
+    background: radial-gradient(circle, rgb(237, 237, 237) 0%, rgb(108, 108, 108) 100%);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tabla-body-item {
+    text-align: center; /* Center align text */
+    padding: 10px; /* Add consistent padding */
+    word-wrap: break-word; /* Handle long text */
+    margin: 1.25rem;
+    font-size: 1.5rem;
+    color: #555;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+}
+
+
+
