@@ -1,0 +1,32 @@
+.perfil__container {
+    display:flex;
+    flex-direction: row;
+}
+
+.perfil {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgb(237, 237, 237) 0%, rgb(108, 108, 108) 100%);
+    width: 45vw;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 2rem;
+    gap: 2rem;
+}
+.perfil__title {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.perfil__item {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+}

@@ -51,9 +51,9 @@
 }
 
 .tabla-body-item {
-    text-align: center; /* Center align text */
-    padding: 10px; /* Add consistent padding */
-    word-wrap: break-word; /* Handle long text */
+    text-align: center;
+    padding: 10px; 
+    word-wrap: break-word; 
     margin: 1.25rem;
     font-size: 1.5rem;
     color: #555;
