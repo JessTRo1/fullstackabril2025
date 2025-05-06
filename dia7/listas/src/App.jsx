@@ -34,9 +34,12 @@ function App() {
   const alumnos = [
     { nombre: 'Juan', nota: 8 },
     { nombre: 'María', nota: 6 },
+    { nombre: 'Mónica', nota: 3 },
     { nombre: 'Pedro', nota: 4 },
     { nombre: 'Ana', nota: 7 },
+    { nombre: 'Alejandro', nota: 4 },
     { nombre: 'Luis', nota: 5 },
+    { nombre: 'Lorena', nota: 2 },
     { nombre: 'Laura', nota: 9 },
     { nombre: 'Javier', nota: 3 },
     { nombre: 'Sofía', nota: 10 },

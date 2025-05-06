@@ -17,7 +17,7 @@ const App = () => {
         <Productos nombre="Tablet" precio={300} />
       </div>
       <div>
-        <h2 className='title'> Hola, {nombre}</h2>
+        <Saludo nombre={}/>
       </div>
     </>
   );

@@ -2,9 +2,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-   
-    
-   
 }
 
 .producto__container {
@@ -16,7 +13,7 @@ body {
     width: 35vw;
     border-radius: 20px;
     padding: 20px;
-    margin: 2rem auto; /* Center horizontally if not using flex on the body */
+    margin: 2rem auto; 
     gap: 2rem;
 }
 

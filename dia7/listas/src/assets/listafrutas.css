@@ -1,4 +1,4 @@
-.fruit-list, .task-list {
+.fruit-list {
   background: #f8f9fa;
   padding: 20px;
   border-radius: 8px;
@@ -16,7 +16,7 @@
   padding: 0;
 }
 
-.fruit-item, .task-item, .no-tasks {
+.fruit-item {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -28,9 +28,6 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.checkbox {
- margin: 0 .3125rem;
-}
 
 .total-count {
   font-weight: bold;

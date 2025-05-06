@@ -1,22 +1,63 @@
 .alumnos-aprobados {
+    display: block;
     background: #f8f9fa;
     padding: 20px;
     border-radius: 8px;
     width: 25vw;
-    margin: 5rem;
+    margin: 5rem auto; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .alumnos-lista {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .alumno-item {
     display: flex;
-    justify-content: center;
-    padding: 8px 16px;
-    margin: 5px 0;
+    justify-content: space-between;
+    padding: 12px 16px;
+    margin: 8px 0;
     background: white;
     font-size: 1.2rem;
     border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.alumno-nombre {
+    color: #333;
+}
+
+.alumno-nota {
+    font-weight: bold;
+}
+
+.alumno-nota.aprobado {
+    color: #2ecc71;
+}
+
+.alumno-nota.suspenso {
+    color: #ef0317;
+}
+
+.show-button {
+    width: 100%;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
