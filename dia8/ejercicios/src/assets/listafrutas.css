@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     background: radial-gradient(circle, rgb(237, 237, 237) 0%, rgb(108, 108, 108) 100%);
-    width: 20vw;
+    width: 25vw;
     border-radius: 20px;
     padding: 20px;
     margin: 4rem;
@@ -30,3 +30,24 @@
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
 }
+
+.input, .add-button{
+    border-radius: 10px;
+    height: 4vh;
+    margin: 1rem;
+    font-size:large;
+    padding: .5rem;;
+}
+
+.add-button {
+    width: 5vw;
+    background: radial-gradient(circle, rgb(237, 237, 237) 0%, rgba(209, 1, 1, 0.559) 100%);
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.add-button:hover {
+    transform: translateY(-0.25rem);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+}
+
