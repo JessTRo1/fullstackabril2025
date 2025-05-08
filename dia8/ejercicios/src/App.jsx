@@ -3,6 +3,7 @@ import ListaFrutas from "./assets/ListaFrutas";
 import Productos from "./assets/productos";
 import TablaUsuarios from "./assets/tablausuarios";
 import ListaTareas from "./assets/tasklist";
+import Empleados from "./assets/listaempleados";
 import './App.css';
 
 function App() {
@@ -26,12 +27,20 @@ function App() {
   ];
 
   const tareas = [
-    { id: 1, nombre: "Hacer la compra"},
-    { id: 2, nombre: "Limpiar la casa" },
-    { id: 3, nombre: "Estudiar"},
-    { id: 4, nombre: "Hacer ejercicio"},
-    { id: 5, nombre: "Leer un libro"},
+    { id: 1, nombre: "Hacer la compra", estado: "pendiente"},
+    { id: 2, nombre: "Limpiar la casa", estado: "pendiente" },
+    { id: 3, nombre: "Estudiar", estado: "pendiente"},
+    { id: 4, nombre: "Hacer ejercicio", estado: "pendiente"},
+    { id: 5, nombre: "Leer un libro", estado: "pendiente"},
   ];
+
+  const empleados = [
+    {id: 1, nombre: "Ana", apellido: "Mesa", salario: 2500},
+    {id: 2, nombre: "Luis", apellido: "Garcia", salario: 1800},
+    {id: 3, nombre: "Carlos", apellido: "Perez", salario: 3200},
+    {id: 4, nombre: "Marta", apellido: "Gutierrez", salario: 2800},
+    {id: 5, nombre: "Pedro", apellido: "Almedaba", salario: 1500},
+  ]
 
   return (
     <div className="App">
@@ -39,6 +48,7 @@ function App() {
       <Productos productos={productos} />
       <TablaUsuarios usuarios={usuarios}/>
       <ListaTareas tareas={tareas} />
+      <Empleados empleados={empleados} />
     </div>
   );
 }

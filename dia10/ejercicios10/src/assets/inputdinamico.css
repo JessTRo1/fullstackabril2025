@@ -1,0 +1,25 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgb(237, 237, 237) 0%, rgb(108, 108, 108) 100%);
+    width: 25vw;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 4rem;
+}
+
+.title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.input {
+    border-radius: 10px;
+    height: 4vh;
+    margin: 1rem;
+    font-size:large;
+    padding: .5rem;
+}

@@ -16,6 +16,23 @@
     margin-bottom: 20px;
 }
 
+.categorias {
+    display: flex;
+    flex-direction: row;
+}
+
+.categorias-item {
+    border-radius: 10px;
+    background-color: #fff;
+    margin: .8rem;
+    transition: transform .3s ease, box-shadow .3s ease, background-color .3s ease;
+}
+.categorias-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ff4d4d;
+}
+
 .lista-tareas {
     list-style: none;
 }
@@ -30,7 +47,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
 }
 
-.delete-button {
+.toggle-button {
     background-color: #ff4d4d;
     color: white;
     border: none;
