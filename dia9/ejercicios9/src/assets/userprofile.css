@@ -1,0 +1,18 @@
+.avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    border-radius: 100%;
+    margin: 2rem;
+}
+span {
+    border-radius: 10px;
+    background-color: #fff;
+    margin: .8rem;
+    font-size: 2rem;
+    padding: 1rem;;
+}

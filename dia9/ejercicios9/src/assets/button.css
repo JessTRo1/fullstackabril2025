@@ -1,0 +1,14 @@
+.button {
+    width: 8vw;
+    height: 3vw;
+    background-color:rgba(252, 57, 57, 0.559);
+    color: #fafafa;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,9 @@
+.title {
+    font-size: 1.5rem;
+    color: #333;
+    background: radial-gradient(circle, rgb(237, 237, 237) 0%, rgb(108, 108, 108) 100%);
+    padding: 20px;
+    margin: 2rem auto; 
+    width: 12vw;
+    border-radius: 20px;
+}

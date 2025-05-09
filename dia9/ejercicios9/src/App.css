@@ -9,3 +9,25 @@ body {
     max-width: 100vw;
     background: radial-gradient(circle, rgb(0, 82, 141) 0%, rgb(0, 48, 99) 100%);
 }
+
+.children-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgb(237, 237, 237) 0%, rgb(108, 108, 108) 100%);
+    width: 30vw;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 4rem;
+}
+
+.cardtitle {
+    font-size: 3rem;
+    background-color: rgba(0, 0, 0, 0.137);
+    border-radius: 10px;
+}
+.description {
+    font-size: 1.5rem;
+    margin: 1.5rem;
+}
