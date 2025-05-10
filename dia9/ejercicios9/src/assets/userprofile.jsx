@@ -4,7 +4,7 @@ import './userprofile.css';
 const UserProfile = ({ name, avatarUrl }) => {
   return (
     <div>
-        <img src={avatarUrl} alt='`avatar de ${name}'/>
+        <img className='avatarimg' src={avatarUrl} alt='`avatar de ${name}'/>
         <span>{name}</span>
     </div>
   );

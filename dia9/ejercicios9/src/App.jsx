@@ -6,8 +6,11 @@ import Saludo from './assets/saludo';
 import Button from './assets/button';
 import Tarea from './assets/tarea';
 import UserProfile from './assets/userprofile';
-import Tarjeta from './assets/tarjeta'
-import Alerta from './assets/alerta'
+import Tarjeta from './assets/tarjeta';
+import Alerta from './assets/alerta';
+import Caja from './assets/caja';
+import BotonPersonalizado from './assets/buttonchildren';
+import ListaAperturas from './assets/listachildren'
 
 const App = () => {
 
@@ -22,6 +25,7 @@ const App = () => {
     { id: 4, nombre: "Hacer ejercicio", estado: "pendiente" },
     { id: 5, nombre: "Leer un libro", estado: "pendiente" },
   ];
+
 
   return (
     <>
@@ -51,7 +55,7 @@ const App = () => {
       </div>
       <div className='children-container'>
         <Tarjeta>
-          <h2 className='cardtitle'>Gimnasio ESPARTACO</h2>
+          <h2 className='cardtitle'>Gimnasio FITNESSTOPEWAY</h2>
           <p className='description'>Tarjeta de miembro del ginmasio para que vengas y te pongas mamadísimo</p>
           <img src='https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/da/02/31/da0231a6-449a-0073-573d-3ca5f93806ca/AppIcon-0-0-1x_U007emarketing-0-5-0-85-220.png/256x256bb.jpg'></img>
         </Tarjeta>
@@ -59,6 +63,31 @@ const App = () => {
         <Alerta>
           <strong>¡Cuidado!</strong> No te vayas a arañar esos dedos de princesa
         </Alerta>
+      </div>
+      <div className='caja'>
+
+        <Caja>
+          <h2 className='title'>Apertura ajedrez</h2>
+          <p className='descripcion'>Ejemplo de la apertura inglesa/escandinava</p>
+          <img className='opening' src='https://herculeschess.com/wp-content/uploads/2020/04/English-Opening.png'></img>
+
+          <BotonPersonalizado>
+
+            <button className='thumbs'>&#128077;</button>
+            <button className='thumbs'>&#128078;</button>
+
+          </BotonPersonalizado>
+        </Caja>
+        <ListaAperturas>
+          <li className="opening-item">Defensa Siciliana</li>
+          <li className="opening-item">Defensa Francesa</li>
+          <li className="opening-item">Apertura Inglesa</li>
+          <li className="opening-item">Gambito de Dama</li>
+          <li className="opening-item">Defensa Caro-Kann</li>
+          <li className="opening-item">Apertura Italiana</li>
+          
+        </ListaAperturas>
+
       </div>
 
     </>
