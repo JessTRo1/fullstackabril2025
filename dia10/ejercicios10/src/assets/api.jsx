@@ -38,7 +38,6 @@ function GokuTransformations() {
 
   return (
     <div className="transformation-container">
-      <h1 className="transformation-title">Transformaciones de Goku</h1>
       {transformations.map((transformation) => (
         <div className="transformation-card" key={transformation.id}>
           <div className="transformation-content-row">
