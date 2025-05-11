@@ -1,0 +1,22 @@
+.lista-arte {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(108, 108, 108, 1), rgba(255, 255, 255, 1));
+    width: 25vw;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 4rem;
+}
+.arte-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid;
+    width: 25vw;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 4rem;
+}
