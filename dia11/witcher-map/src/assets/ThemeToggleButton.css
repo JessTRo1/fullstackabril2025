@@ -1,0 +1,23 @@
+.theme-toggle-button {
+    border: none;
+    background: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+    transform: scale(1.2);
+}
+
+.fas {
+  font-size: 3rem;
+  transition: .3s ease;
+}
+
+.fas.fa-sun {
+    color: #f39c12;
+  
+}
+
+.fas.fa-moon {
+    color: gray;
+}

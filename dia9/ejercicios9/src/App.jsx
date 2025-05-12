@@ -85,7 +85,7 @@ const App = () => {
           <li className="opening-item">Gambito de Dama</li>
           <li className="opening-item">Defensa Caro-Kann</li>
           <li className="opening-item">Apertura Italiana</li>
-          
+
         </ListaAperturas>
 
       </div>

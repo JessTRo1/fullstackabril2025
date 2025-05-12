@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 100vw;
+  font-family: "The Witcher", sans-serif;
+  font-size: 2rem;
+}
+
+/*header */
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: #000000;
+}
+.app {
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: rgb(234, 221, 202);
+  color: #222;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  border: none;
+}
+
+.main__mapa { 
+  width: 80vw;
+  height: auto;
+  border: 2px solid #efdfdf;
+  border-radius: 8px;
+}
+
+/* Dark Mode */
+.app.dark {
+  background-color: #111;
+  color: #eee;
+}
+
+.app.dark .head__title {
+  color: #eee; 
+}
+.app.dark .main__mapa { 
+  filter: brightness(0.8);
+  transition: opacity 0.5s ease, filter 0.5s ease;
+}
+
+
+
+/* fuentes */
+
+@font-face {
+  font-family: "The Witcher";
+  src: url("./assets/font/Thewitcher-jnOj.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
