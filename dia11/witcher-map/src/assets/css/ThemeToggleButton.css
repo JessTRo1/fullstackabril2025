@@ -1,0 +1,59 @@
+.theme-toggle-button {
+    border: none;
+    background: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.theme-toggle-buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+.theme-toggle-button:hover {
+    transform: scale(1.2);
+}
+
+.fas {
+  font-size: 3rem;
+  transition: .3s ease;
+}
+
+.fas.fa-sun {
+    color: #f39c12;
+  transform: rotate(0deg);
+  animation: sun-animation 5s infinite linear;
+}
+
+.fas.fa-moon {
+    color: gray;
+    animation: moon-animation 3s infinite linear;
+}
+
+@keyframes sun-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moon-animation {
+  0% {
+    filter: brightness(0.5);
+  }
+  50% {
+    filter: brightness(1.5);
+  }
+  100% {
+    filter: brightness(0.5);
+  }
+}
+/* Dark Mode */
+
+.app.dark .fas.fa-film {
+    color: #ffffff;
+}
+.app.dark .fas.fa-pause {
+    color: #ffffff;
+}
