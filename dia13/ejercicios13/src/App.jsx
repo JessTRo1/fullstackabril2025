@@ -3,7 +3,9 @@ import "./App.css";
 import Carousel from "./assets/carrousel.jsx";
 import Menu from "./assets/nav.jsx";
 import React from 'react'
-import MySlider from "./assets/sliderterceros.jsx";
+import SimpleSwiper from "./assets/sliderterceros.jsx";
+import CarouselSwiper from "./assets/carrouselterceros.jsx";
+import MenuDeslizante from "./assets/menuterceros.jsx";
 
 function App() {
   return (
@@ -11,11 +13,16 @@ function App() {
       <header>
         <Menu />
       </header>
+      <main>
       <CustomSlider />
       <Carousel />
-      <MySlider />
-
-    </div>
+      <SimpleSwiper />
+      <CarouselSwiper />
+      </main>
+      <footer>
+        <MenuDeslizante />
+      </footer>
+    </div >
   );
 }
 
