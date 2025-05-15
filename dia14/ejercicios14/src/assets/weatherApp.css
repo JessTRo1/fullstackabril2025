@@ -1,0 +1,48 @@
+.weather {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather__form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.weather__input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.weather__button {
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.weather__button:hover {
+    background-color: #45a049;
+}
+
+.title {
+    color: #333;
+    margin: 0.5rem 0;
+    font-weight: bold;
+
+}
+.error, .loading {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
