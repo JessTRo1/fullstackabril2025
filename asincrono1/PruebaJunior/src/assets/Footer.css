@@ -1,0 +1,51 @@
+.product__index {
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    border-top: 1px solid #d9d9d9;
+    transition: border-color 0.5s ease-in-out;
+}
+
+.product__index-item-1,
+.product__index-item-2 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 5vw;
+    cursor: pointer;
+    opacity: 0.5;
+    position: relative;
+    transition: opacity 0.5s ease;
+}
+
+.product__index-item-1::before,
+.product__index-item-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0.125rem;
+    background: #000;
+    transition: width 0.5s ease;
+}
+
+.product__index-second {
+    display: none;
+}
+
+.product__index-number {
+    color: #707070;
+    padding: 1rem 0 0 0;
+}
+
+/* Estados activos */
+.index-item-active {
+    opacity: 1;
+}
+
+.index-item-active::before {
+    width: 100%;
+}
