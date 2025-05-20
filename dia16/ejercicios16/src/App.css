@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color:rgb(20, 28, 42);
+  color: #fafafa;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.tareas {
+  font-size: 1.2rem;
+  color: #1976d2;
+  margin-bottom: 1rem;
+  list-style: none;
+  width: 30vw;
+}
+
+.tareas__item {
+  background-color: #fff;
+  border: 1px solid #1976d2;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 5px 0;
+  width: 80%;
+  text-align: left;
+}

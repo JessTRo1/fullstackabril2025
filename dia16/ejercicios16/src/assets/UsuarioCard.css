@@ -1,0 +1,27 @@
+.usuarios-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    background: #f4f8ff;
+    border: 2px solid #1976d2;
+    color: #1976d2;
+    flex-direction: column;
+    width: 15rem;
+}
+
+h2 {
+    margin-top: 30px;
+    color: #ffffff;
+}
+
+.usuario-card.inactivo {
+    border-bottom: 1px solid #1976d2;
+    padding: 2rem;
+}
+
+.usuario-card.activo {
+    color: #f4f4f4;
+    background-color: #1976d2;
+    padding: 2rem;
+    border: 1px solid #f4f4f4;
+}

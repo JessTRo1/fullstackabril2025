@@ -1,0 +1,46 @@
+/* Azul igual que Componente.css */
+.funcion {
+  border: 2px solid #1976d2;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  max-width: 320px;
+  background: #f4f8ff;
+  box-shadow: 0 2px 8px rgba(145, 168, 146, 0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+}
+
+.funcion__mensaje {
+  font-size: 1.2rem;
+  color: #1976d2;
+  margin-bottom: 1rem;
+}
+
+.funcion__input {
+    margin: 10px 0;
+    padding: 0.5rem;
+}
+
+.funcion__resultado {
+  font-size: 1.2rem;
+  color: #1976d2;
+  margin: 1rem;
+}
+
+.funcion__boton {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.funcion__boton:hover {
+  background: #0d47a1;
+}
