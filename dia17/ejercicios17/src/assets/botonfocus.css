@@ -1,0 +1,26 @@
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.inputField {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.focusButton {
+  padding: 12px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.focusButton:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}

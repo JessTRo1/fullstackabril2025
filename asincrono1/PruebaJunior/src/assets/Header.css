@@ -44,7 +44,62 @@
     margin: 0 0 4px 0;
 }
 
+/* Menú lateral */
+
+.container__sidemenu {
+    display: none;
+    background-color: transparent;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 15vh;
+    left: 11.5vw;
+}
+
+.container__sidemenu-list {
+    line-height: 3;
+    font-size: 2rem;
+}
+
+.container__submenu-list {
+    display: none;
+    padding-left: 1rem;
+}
+
+.container__sidemenu-item:hover .container__submenu-list {
+    display: block;
+}
+
+.container__submenu-item {
+    font-size: 1.2rem;
+    font-weight: 200;
+    list-style: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    animation: slideUp 1s ease forwards;
+}
+
+.container__sidemenu.active {
+    display: block;
+}
+
+/* Galería lateral */
+.container__sidegallery-image {
+    display: none;
+    position: fixed;
+    right: 30vw;
+    top: 15vh;
+    opacity: 0;
+}
+
 /* Modo Oscuro */
 
-.Navigation__dark-mode {
-    display: none;
+ .Navigation.dark {
+    background-color: #0a0a0a;
+    color: #eee;
+ }
+
+    .Navigation__title.dark {
+        color: #eee;
+    }
+

@@ -1,0 +1,14 @@
+/* CounterContext.css */
+
+h2 {
+  font-size: 2rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+button {
+  width: 3rem;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}

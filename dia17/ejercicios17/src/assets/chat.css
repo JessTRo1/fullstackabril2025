@@ -1,0 +1,41 @@
+.chat {
+ margin: 3rem;
+ 
+}
+
+.chat-input-form {
+ display: flex;
+ justify-content: space-between;
+ margin-top: 1rem;
+}
+
+.chat-input {
+ flex: 1;
+ padding: 0.5rem;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+}
+
+.chat-send {
+ background-color: #007bff;
+ color: white;
+ border: none;
+ border-radius: 4px;
+ padding: 0.5rem 1rem;
+ cursor: pointer;
+ margin: 1rem;
+}
+
+.chat-send:hover {
+ background-color: #0056b3;
+}
+
+.user {
+ font-weight: bold;
+ background-color: aliceblue;
+ padding: 1rem;
+ margin: 1rem;
+    border-radius: 8px;
+ border: 1px solid #000000;
+ 
+}
