@@ -42,9 +42,6 @@
     }
 }
 
-
-
-
 .container__product {
     display: flex;
     flex-direction: column;
@@ -72,4 +69,4 @@
 }
 
 
-/* Responsive */
+/* Dark Mode */

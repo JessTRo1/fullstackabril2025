@@ -13,6 +13,7 @@
     color: #000000;
     font-size: 2rem;
     font-weight: 700;
+    z-index: 1;
 }
 
 /*Menu Hamburguesa*/
@@ -33,7 +34,7 @@
     margin: 8px 0;
     background-color: #000000;
     border-radius: 10px;
-    transition: all 0.5s;
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .Navigation__item-middle {
     width: 15px;
@@ -44,62 +45,30 @@
     margin: 0 0 4px 0;
 }
 
-/* Menú lateral */
+/* Tema oscuro */
 
-.container__sidemenu {
+.app.dark .Navigation__title {
+    color: #fafafa;
+}
+
+.app.dark .Navigation__button {
+    border: 2px solid #ffffff;
+}
+
+.app.dark .Navigation__item-top,
+.app.dark .Navigation__item-middle,
+.app.dark .Navigation__item-bottom {
+    background-color: #fafafa;
+     transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.app.dark .Navigation__item-top {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.app.dark .Navigation__item-middle {
     display: none;
-    background-color: transparent;
-    opacity: 0;
-    visibility: hidden;
-    position: fixed;
-    top: 15vh;
-    left: 11.5vw;
 }
 
-.container__sidemenu-list {
-    line-height: 3;
-    font-size: 2rem;
+.app.dark .Navigation__item-bottom {
+    transform: translateY(-11px) rotate(-45deg);
 }
-
-.container__submenu-list {
-    display: none;
-    padding-left: 1rem;
-}
-
-.container__sidemenu-item:hover .container__submenu-list {
-    display: block;
-}
-
-.container__submenu-item {
-    font-size: 1.2rem;
-    font-weight: 200;
-    list-style: none;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-    animation: slideUp 1s ease forwards;
-}
-
-.container__sidemenu.active {
-    display: block;
-}
-
-/* Galería lateral */
-.container__sidegallery-image {
-    display: none;
-    position: fixed;
-    right: 30vw;
-    top: 15vh;
-    opacity: 0;
-}
-
-/* Modo Oscuro */
-
- .Navigation.dark {
-    background-color: #0a0a0a;
-    color: #eee;
- }
-
-    .Navigation__title.dark {
-        color: #eee;
-    }
-

@@ -12,11 +12,41 @@ body{
     max-height: 100vh;
 }
 
-/* Modo oscuro */
-
-.app.dark {
-  background-color: #0a0a0a;
-  color: #eee;
+.app {
+  position: relative; 
+  min-height: 100vh;
+  z-index: 1;
 }
 
+.app::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background: #0a0a0a;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+  opacity: 1;
+}
 
+/* Modo oscuro */
+
+.app.dark.dark-transition::before {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+.app.light.dark-transition::before {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+.app.dark.light-transition::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.app.light.light-transition::before {
+  transform: scaleX(0);
+  transform-origin: left;
+}

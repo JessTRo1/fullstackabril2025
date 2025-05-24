@@ -1,0 +1,50 @@
+.container__sidemenu {
+    display: block;
+    background-color: transparent;
+    position: fixed;
+    top: 15vh;
+    left: 11.5vw;
+    color: #fafafa;
+    animation: slideUp 1s ease forwards;  
+    
+}
+
+.container__sidemenu-list {
+    line-height: 3;
+    font-size: 2rem;
+    list-style: none;
+}
+
+.container__submenu-list {
+    display: none;
+    padding-left: 1rem;
+}
+
+.container__sidemenu-item:hover .container__submenu-list {
+    display: block;
+}
+
+.container__submenu-item {
+    font-size: 1.2rem;
+    font-weight: 200;
+    list-style: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    animation: slideUp 1s ease forwards;
+}
+
+
+/* Galería lateral */
+.container__sidegallery-image {
+    display: none;
+    position: fixed;
+    right: 30vw;
+    top: 15vh;
+    opacity: 0;
+}
+
+.container__sidegallery-image.active {
+    display: flex;
+    opacity: 1;
+    animation: slideUp 1s ease forwards;
+}
