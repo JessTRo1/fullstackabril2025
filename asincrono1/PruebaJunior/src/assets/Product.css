@@ -69,4 +69,53 @@
 }
 
 
-/* Dark Mode */
+/* Responsive */
+
+/* Escritorio (1024px) */
+@media screen and (max-width: 1024px) {
+    .container {
+        gap: 15vw;
+    }
+    .container__product {
+        margin: 0 0 0 9vw;
+    }
+    .container__product-first,
+    .container__product-second {
+        gap: 25vw;
+    }
+
+    .container__product-button {
+        margin: 5vh 0 0 0;
+        width: 14vw;
+    }
+}
+
+/* Tablet (768px a 1023px) */
+@media screen and (max-width: 768px) {
+    .container__product-first,
+    .container__product-second {
+        gap: 15vw;
+    }
+
+    .container__product-button {
+        width: 15vw;
+        left: 8vw;
+    }
+
+    .container__product-description {
+        margin: 1rem 0;
+    }
+
+    .container__gallery-image {
+        width: 90%;
+    }
+}
+
+/* Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    .container__product-button {
+        width: 20vw;
+        left: 5vw;
+        margin: 3rem 0 0 1rem;
+    }
+}

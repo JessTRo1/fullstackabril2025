@@ -49,3 +49,11 @@
 .index-item-active::before {
     width: 100%;
 }
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+.product__index-item-1,
+    .product__index-item-2 {
+        margin: 0 0 0 3vw;
+    }
+}

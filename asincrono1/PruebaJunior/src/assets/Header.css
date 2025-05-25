@@ -72,3 +72,47 @@
 .app.dark .Navigation__item-bottom {
     transform: translateY(-11px) rotate(-45deg);
 }
+
+/* Responsive */
+
+/* Escritorio (1024px) */
+@media screen and (max-width: 1024px) {
+    .Navigation {
+       padding: 2.5rem;
+    }
+}
+
+/* Tablet (768px a 1023px) */
+@media screen and (max-width: 768px) {
+    .Navigation {
+        gap: 30vw;
+        
+    }
+}
+
+/* Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    .Navigation {
+        gap: 15vw;    
+    }
+
+    .Navigation__title {
+        font-size: 3rem;
+    }
+    .Navigation__button {
+        width: 3.5rem;
+    }
+
+    .Navigation__item-top {
+        width: 2.2rem;
+        height: 4px;
+    }
+    .Navigation__item-middle {
+        width: 1.2rem;
+        height: 4px;
+    }
+    .Navigation__item-bottom {
+        width: 1rem;
+        height: 4px;
+    }
+}

@@ -1,8 +1,11 @@
-
-import React from "react";
-import './DarkModeMenu.css'; 
+import React, { useState } from "react";
+import './DarkModeMenu.css';
 
 function DarkModeMenu() {
+
+    const [activeIndex, setActiveIndex] = useState(-1);
+
+    const submenu = ["Furniture", "Lighting", "Accessories"];
 
     return (
         <div className="container__darkmode">
@@ -11,9 +14,19 @@ function DarkModeMenu() {
                     <li className="container__sidemenu-item">
                         Collection
                         <ul className="container__submenu-list">
-                            <li className="container__submenu-item">Furniture</li>
-                            <li className="container__submenu-item">Lighting</li>
-                            <li className="container__submenu-item">Accessories</li>
+                            {submenu.map((item, idx) => (
+                                <li
+                                    key={item}
+                                    className={
+                                        "container__submenu-item" +
+                                        (activeIndex === idx ? " active" : "")
+                                    }
+                                    onMouseEnter={() => setActiveIndex(idx)}
+                                    onMouseLeave={() => setActiveIndex(-1)}
+                                >
+                                    {item}
+                                </li>
+                            ))}
                         </ul>
                     </li>
                     <li className="container__sidemenu-item">Design</li>
@@ -22,7 +35,14 @@ function DarkModeMenu() {
                 </ul>
             </nav>
             <div className="container__sidegallery">
-                <img src="../sofa_blanco.png" alt="sofa" className="container__sidegallery-image"></img>
+                <img
+                    src="../sofa_blanco.png"
+                    alt="sofa"
+                    className={
+                        "container__sidegallery-image" +
+                        (activeIndex === 0 ? " active" : "")
+                    }
+                />
             </div>
         </div>
     );

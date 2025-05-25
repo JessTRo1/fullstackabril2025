@@ -13,15 +13,26 @@
     line-height: 3;
     font-size: 2rem;
     list-style: none;
+   
 }
 
 .container__submenu-list {
-    display: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+        max-height 1.2s ease,
+        opacity 1s ease,
+        transform 1s ease;
     padding-left: 1rem;
+    transform: translateY(10px);
 }
 
-.container__sidemenu-item:hover .container__submenu-list {
-    display: block;
+.container__sidemenu-item:hover .container__submenu-list,
+.container__sidemenu-item:focus-within .container__submenu-list {
+    max-height: 400px;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .container__submenu-item {
@@ -47,4 +58,55 @@
     display: flex;
     opacity: 1;
     animation: slideUp 1s ease forwards;
+}
+
+/* Animaciones */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(3.125rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(3.125rem);
+    }
+}
+
+/* Responsive */
+
+/* Escritorio (1024px) */
+@media screen and (max-width: 1024px) {
+ 
+    .container__sidegallery-image {
+        right: 25vw;
+    }
+}
+
+/* Tablet (768px) */
+@media screen and (max-width: 768px) {
+.container__sidemenu {
+        left: 5vw;
+    }
+
+    .container__sidegallery-image {
+        right: 5vw;
+        width: 60%;
+    }
+}
+
+/* Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+     .container__sidegallery-image.active {
+        right: 1vw;
+        top: 18vh;
+    }
 }

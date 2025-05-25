@@ -2,25 +2,34 @@ import React from "react";
 import './DarkModeFooter.css';
 
 function DarkModeFooter() {
-    
+    const navSections = [
+        ["Home", "Shop"],
+        ["About", "News"],
+        ["Contact", "Care"],
+        ["Dealers", "Press"],
+    ];
+
     return (
         <footer className="product__index">
-            <div className="product__index-first">
-                <span className="product__index-nav-item">Home</span>
-                <span className="product__index-nav-item">Shop</span>
-            </div>
-            <div className="product__index-second">
-                <span className="product__index-nav-item">About</span>
-                <span className="product__index-nav-item">News</span>
-            </div>
-            <div className="product__index-second">
-                <span className="product__index-nav-item">Contact</span>
-                <span className="product__index-nav-item">Care</span>
-            </div>
-            <div className="product__index-second">
-                <span className="product__index-nav-item">Dealers</span>
-                <span className="product__index-nav-item">Press</span>
-            </div>
+            {navSections.map((section, idx) => (
+                <div
+                  className={
+                    idx === 0
+                      ? "product__index-first"
+                      : "product__index-second"
+                  }
+                  key={idx}
+                >
+                    {section.map((item) => (
+                        <span
+                          className="product__index-nav-item"
+                          key={item}
+                        >
+                          {item}
+                        </span>
+                    ))}
+                </div>
+            ))}
         </footer>
     );
 }

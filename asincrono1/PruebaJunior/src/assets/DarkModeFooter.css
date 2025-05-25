@@ -35,24 +35,12 @@
     opacity: 1;
     animation: slideUp 1s ease forwards;
 }
+/* Responsive */
 
-/* Animaciones */
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(3.125rem);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* Escritorio (1024px) */
+@media screen and (max-width: 1024px) {
 
-@keyframes slideDown {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(3.125rem);
+  .container__sidegallery-image.active {
+        right: 12vw;
     }
 }
