@@ -1,21 +1,18 @@
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
+  border: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
-  background-color: #f5f5f5;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: #fae498; 
   color: #222;
   padding: 1rem;
-}
-
-/* Títulos */
-h1, h2 {
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+  max-width: 100vw;
+  max-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* Lista de lecturas */
@@ -30,6 +27,8 @@ h1, h2 {
   border-radius: 8px;
   border: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: background-color 0.4s ease, color 0.4s ease;
+
 }
 
 /* Acciones dentro de cada lectura */
@@ -57,8 +56,8 @@ h1, h2 {
   cursor: pointer;
 }
 
-.item-link {
-  text-decoration: underline;
+.Home__item-link, .ReadingPage__link {
+  text-decoration: none;
   color: #1565c0;
 }
 
@@ -73,6 +72,7 @@ h1, h2 {
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .input {
@@ -91,18 +91,113 @@ h1, h2 {
 }
 
 /* Navbar */
-nav {
+.Navegador {
+  display: flex;
+  align-items: center;
   background-color: #333;
-  padding: 1rem;
-  margin-bottom: 2rem;
+  padding: 1rem;  
+  border-radius: 8px;
 }
 
-nav a {
+.Navegador__link {
+  font-size: 1.25rem;
+  font-weight: bold;
   color: white;
-  margin-right: 1rem;
+  margin: 0 1.5rem;
   text-decoration: none;
+  transition: transform 0.2s ease-in-out;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.Navegador__link:hover {
+  transform: scale(1.5);
 }
+
+.Navegador__tema-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: auto;
+  color: white;
+  animation: rotateY 2s linear infinite;
+}
+
+.Home__title {
+  font-size: 2rem;
+  margin: 1.5rem;
+  text-align: center;
+}
+
+.Home__toggle-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #26a69a;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+
+/* Modo oscuro */
+body.dark-mode {
+  background-color: #121212;
+}
+
+.dark-mode .Home__item {
+  background-color: #4f4f4f;
+  border-color: #8a8a8a;
+  color: #f5f5f5;
+}
+
+.dark-mode .Home__title {
+  color: #f5f5f5;
+}
+
+.dark-mode .FormularioLectura {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.dark-mode .input {
+  background-color: #333;
+  color: white;
+  border-color: #555;
+}
+
+.dark-mode .Home__item-link{
+  color: #51b9f6;
+}
+.dark-mode .Home__toggle-btn {
+  background-color: #1f776e;
+}
+
+.dark-mode nav {
+  background-color: rgba(128, 127, 127, 0.984);
+}
+
+.dark-mode .Navegador__tema-btn {
+  color: #FFD43B;
+  animation: rotate 3s linear infinite;
+}
+
+/* Animaciones */
+@keyframes rotateY {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 

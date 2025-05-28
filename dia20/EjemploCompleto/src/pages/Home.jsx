@@ -21,12 +21,6 @@ function Home() {
     <div className="Home">
       <h1 className="Home__title">Lista de Lecturas</h1>
 
-        <button                                                         // Botón para alternar entre mostrar todo o solo lecturas completadas
-        onClick={() => setMostrarCompletadas(prev => !prev)}
-        >
-          {mostrarCompletadas ? "Mostrar todas" : "Mostrar solo completadas"}  
-        </button>
-
         {lecturasFiltradas.length === 0 && (
           <p>No hay lecturas que mostrar</p>                            // Mensaje si la lista está vacía
         )}
@@ -58,6 +52,12 @@ function Home() {
           </li>
         ))}
       </ul>
+       <button className="Home__toggle-btn"                                                        // Botón para alternar entre mostrar todo o solo lecturas completadas
+        onClick={() => setMostrarCompletadas(prev => !prev)}
+        >
+          {mostrarCompletadas ? "Mostrar todos" : "Mostrar completados"}  
+        </button>
+
     </div>
   )
 }
