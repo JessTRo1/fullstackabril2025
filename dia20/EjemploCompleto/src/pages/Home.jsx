@@ -52,7 +52,7 @@ function Home() {
           </li>
         ))}
       </ul>
-       <button className="Home__toggle-btn"                                                        // Botón para alternar entre mostrar todo o solo lecturas completadas
+       <button className="Home__toggle-btn"                               // Botón para alternar entre mostrar todo o solo lecturas completadas
         onClick={() => setMostrarCompletadas(prev => !prev)}
         >
           {mostrarCompletadas ? "Mostrar todos" : "Mostrar completados"}  
