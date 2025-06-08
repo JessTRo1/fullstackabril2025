@@ -1,0 +1,25 @@
+:root {
+    --color-bg: #f5f5f5;
+    --color-text: #222;
+    --color-card-bg: #fff;
+    --color-border: #ccc;
+    --color-primary: #0077cc;
+    --color-primary-dark: #005fa3;
+    --color-secondary: #999;
+}
+
+body.dark {
+    --color-bg: #1e1e1e;
+    --color-text: #f5f5f5;
+    --color-card-bg: #2a2a2a;
+    --color-border: #444;
+    --color-primary: #4da3ff;
+    --color-primary-dark: #267dd9;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

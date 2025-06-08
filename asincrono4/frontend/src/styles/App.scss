@@ -1,0 +1,84 @@
+.app {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+
+    &__title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    &__emails {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    &__email-card {
+        border: 1px solid var(--color-border);
+        background-color: var(--color-card-bg);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &__email-subject {
+        margin: 0;
+        font-size: 1.25rem;
+    }
+
+    &__email-from,
+    &__email-body,
+    &__email-status {
+        margin: 0.5rem 0;
+    }
+}
+
+.app__toggle-theme {
+    padding: 0.5rem 1rem;
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 1rem;
+
+    &:hover {
+        background-color: var(--color-primary-dark);
+    }
+}
+
+@keyframes rotate-sun {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse-moon {
+  0% { color: #6ca0f6; }
+  50% { color: #364fc7; }
+  100% { color: #6ca0f6; }
+}
+
+.app__toggle-theme-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  align-self: flex-end;
+  transition: transform 0.3s ease;
+}
+
+.app__icon {
+  transition: color 0.3s ease;
+}
+
+.app__icon--sun {
+  color: #FFD43B;
+  animation: rotate-sun 3s linear infinite;
+}
+
+.app__icon--moon {
+  animation: pulse-moon 2s ease-in-out infinite;
+}
+

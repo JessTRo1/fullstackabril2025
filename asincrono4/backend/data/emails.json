@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "subject": "Correo de mentira",
+    "body": "Este es tu primer correo",
+    "from": "admin@correo.com",
+    "read": false,
+    "archived": false
+  },
+  {
+    "id": 2,
+    "subject": "Actualización disponible",
+    "body": "Actualización de los terminos de uso",
+    "from": "update@correo.com",
+    "read": false,
+    "archived": false
+  },
+  {
+    "id": 3,
+    "subject": "Actualización disponible",
+    "body": "Actualización de los terminos de uso",
+    "from": "update@correo.com",
+    "read": false,
+    "archived": false
+  },
+  {
+    "id": 4,
+    "subject": "Actualización disponible",
+    "body": "Actualización de los terminos de uso",
+    "from": "update@correo.com",
+    "read": false,
+    "archived": false
+  }
+]
