@@ -1,0 +1,29 @@
+.home {
+  text-align: center;
+  padding: 3rem;
+}
+
+.home__title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.home__nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.home__link {
+  background-color: #0077cc;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.home__link:hover {
+  background-color: #005fa3;
+}
