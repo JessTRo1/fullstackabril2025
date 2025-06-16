@@ -1,14 +1,14 @@
 import { connectDB } from '@/lib/mongoose';
 import { Item } from '@/models/item';
 
-// GET all items
+// GET 
 export async function GET() {
   await connectDB();
   const items = await Item.find();
   return Response.json(items);
 }
 
-// POST new item
+// POST 
 export async function POST(req) {
   await connectDB();
   const body = await req.json();

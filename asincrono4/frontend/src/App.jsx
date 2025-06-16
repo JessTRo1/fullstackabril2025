@@ -16,27 +16,39 @@ function App() {
     fetch(`${import.meta.env.VITE_API_URL}/api/emails`)
       .then(res => res.json())
       .then(data => setEmails(data))
-      .catch(err => console.error('Error al cargar emails:', err));
+      .catch(err => {
+        console.error('Error al cargar emails:', err);
+        alert('Error al cargar los correos. Por favor, inténtalo de nuevo más tarde.');
+      });
   }, []);
 
   const markAsRead = (id) => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/emails/${id}/read`, { method: 'POST' })
-      .then(res => res.json())
-      .then(updated => {
-        setEmails(prev =>
-          prev.map(email => (email.id === updated.id ? updated : email))
-        );
-      });
+    try {
+      fetch(`${import.meta.env.VITE_API_URL}/api/emails/${id}/read`, { method: 'POST' })
+        .then(res => res.json())
+        .then(updated => {
+          setEmails(prev =>
+            prev.map(email => (email.id === updated.id ? updated : email))
+          );
+        });
+    } catch (error) {
+      console.error('Error al marcar el correo como leído:', error);
+    }
   };
 
   const archiveEmail = (id) => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/emails/${id}/archive`, { method: 'POST' })
-      .then(res => res.json())
-      .then(updated => {
-        setEmails(prev =>
-          prev.map(email => (email.id === updated.id ? updated : email))
-        );
-      });
+    try {
+      fetch(`${import.meta.env.VITE_API_URL}/api/emails/${id}/archive`, { method: 'POST' })
+        .then(res => res.json())
+        .then(updated => {
+          setEmails(prev =>
+            prev.map(email => (email.id === updated.id ? updated : email))
+          );
+        });
+    }
+    catch (error) {
+      console.error('Error al archivar el correo:', error);
+    }
   };
 
   return (

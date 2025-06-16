@@ -18,12 +18,18 @@ function saveEmails(emails) {
 
 // Get /api/emails
 router.get('/', (req, res) => {
+    try {
     const emails = getEmails();
     res.json(emails);
+    } catch (error) {
+        console.error('Error reading emails:', error);
+        res.status(500).json({ error: 'Error reading emails' });
+    }
 });
 
 // POST /api/emails/:id/read
 router.post('/:id/read', (req, res) => {
+    try {
     const id = parseInt(req.params.id);
     const emails = getEmails();
     const email = emails.find(e => e.id === id);
@@ -34,10 +40,15 @@ router.post('/:id/read', (req, res) => {
     } else {
         res.status(404).json({ error: 'Email not found' });
     }
+    } catch (error) {
+        console.error('Error marking email as read:', error);
+        res.status(500).json({ error: 'Error marking email as read' });
+    }
 });
 
 // Post /api/emails/:id/archive
 router.post('/:id/archive', (req, res) => {
+    try {
     const id = parseInt(req.params.id);
     const emails = getEmails();
     const email = emails.find(e => e.id === id);
@@ -47,6 +58,10 @@ router.post('/:id/archive', (req, res) => {
         res.json(email);
     } else {
         res.status(404).json({ error: 'Email not found' });
+    }
+    } catch (error) {
+        console.error('Error archiving email:', error);
+        res.status(500).json({ error: 'Error archiving email' });
     }
 });
 
