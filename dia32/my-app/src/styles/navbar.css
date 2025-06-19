@@ -15,7 +15,7 @@
     padding: 0;
 }
 
-.navbar__enlace {
+.navbar__enlace span {
     color: #fff;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -25,7 +25,7 @@
     padding: .5rem;
 }
 
-.navbar__enlace:hover {
+.navbar__enlace:hover span {
     color: #ffd700;   
     animation: rotateY .8s ease-in-out;
 }

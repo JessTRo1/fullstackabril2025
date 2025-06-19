@@ -25,9 +25,9 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <nav className="navbar">
           <ul className="navbar__lista">
-            <li><Link className="navbar__enlace" href="/">Inicio</Link></li>
-            <li><Link className="navbar__enlace" href="/productos">Productos</Link></li>
-            <li><Link className="navbar__enlace" href="/productos/nuevo">Nuevo producto</Link></li>
+            <li><Link className="navbar__enlace" href="/"><span>Inicio</span></Link></li>
+            <li><Link className="navbar__enlace" href="/productos"><span>Productos</span></Link></li>
+            <li><Link className="navbar__enlace" href="/productos/nuevo"><span>Nuevo producto</span></Link></li>
           </ul>
         </nav>
         {children}</body>
