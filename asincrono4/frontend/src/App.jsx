@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import EmailCard from './styles/components/EmailCard';
+import EmailCard from './components/EmailCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './styles/base.scss';
 import './styles/App.scss';
