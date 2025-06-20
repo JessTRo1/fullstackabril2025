@@ -1,4 +1,4 @@
-import './styles/EmailCard.scss';
+import '../styles/EmailCard.scss';
 
 function EmailCard({ email, onMarkAsRead, onArchive }) {
   return (
