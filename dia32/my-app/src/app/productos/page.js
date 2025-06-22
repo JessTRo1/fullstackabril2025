@@ -3,9 +3,11 @@
 import Link from 'next/link';
 import '../../styles/productos.css';
 import { useEffect, useState } from 'react';
+import { useAuth } from '@/context/AuthContext';
 
 export default function ProductosPage() {
   const [items, setItems] = useState([]);
+  const { user } = useAuth(); //  Trae al usuario desde el contexto
 
   useEffect(() => {
     fetch('/api/items')
@@ -41,10 +43,22 @@ export default function ProductosPage() {
         {items.map((item) => (
           <li key={item._id} className="productos__item">
             {item.nombre}
-            <div className="productos__case">
-              <button className="productos__button" onClick={() => handleDelete(item._id)}>Eliminar</button>
-              <Link className="productos__button" href={`/productos/editar/${item._id}`}>Editar</Link>
-            </div>
+            {user?.isAdmin && ( // Solo si es admin
+              <div className="productos__case">
+                <button
+                  className="productos__button"
+                  onClick={() => handleDelete(item._id)}
+                >
+                  Eliminar
+                </button>
+                <Link
+                  className="productos__button"
+                  href={`/productos/editar/${item._id}`}
+                >
+                  Editar
+                </Link>
+              </div>
+            )}
           </li>
         ))}
       </ul>

@@ -35,6 +35,17 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 1rem;
+  margin: 0 0 2rem 0;
+}
+
+.formulario__admin {
+  display: flex;
+  flex-direction: row;
+}
+.formulario__checkbox {
+  margin-right: 1rem;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .formulario__boton {

@@ -1,12 +1,25 @@
 'use client';
-import '../../../styles/formulario.css';
 
-import { useState } from 'react';
+import '../../../styles/formulario.css';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 
 export default function NuevoProductoPage() {
   const [nombre, setNombre] = useState('');
   const router = useRouter();
+  const { user } = useAuth();
+
+  // Protección de ruta: solo admins pueden acceder
+  useEffect(() => {
+    if (user && !user.isAdmin) {
+      alert('Acceso denegado. Solo para administradores.');
+      router.push('/productos');
+    } else if (!user) {
+      alert('Debes iniciar sesión primero.');
+      router.push('/login');
+    }
+  }, [user, router]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
