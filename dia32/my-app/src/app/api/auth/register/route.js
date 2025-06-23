@@ -23,7 +23,7 @@ export async function POST(req) {
   // Hashear la contraseña
   const hashedPassword = await hash(password, 10);
 
-  // Crear el nuevo usuario, por defecto no es admin
+  // Crear usuario
   const nuevoUsuario = await User.create({
     email,
     password: hashedPassword,
