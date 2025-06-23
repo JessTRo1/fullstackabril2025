@@ -1,0 +1,21 @@
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 700px;
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slider__container {
+  border-radius: 20px;
+}
+
+.slider__slide img {
+  border-radius: 20px;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}

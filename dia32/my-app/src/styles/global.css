@@ -38,6 +38,9 @@ ul {
 .home__description {
   font-size: 1.2rem;
   color: #666;
+  text-align: center;
+  width: 35vw;
+  margin: 2rem 0;
 }
 
 
