@@ -17,6 +17,7 @@ export default function HomePage() {
 
       <Grid />
       <p className='home__description'>Excepteur sint occaecat cupidatat non pro</p>
+      <p>hola mundo!!!</p>
     </main>
   );
 }
