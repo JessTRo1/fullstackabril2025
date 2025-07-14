@@ -6,7 +6,9 @@ import Desafios from './pages/Desafios';
 import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Navbar';
 import Perfil from './pages/Perfil';
-
+import RutinaDetalle from './pages/RutinaDetalle';
+import Registro from './pages/Registro';
+import CrearRutina from './pages/CrearRutina'; // Asegúrate de tener este archivo
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/registro" element={<Registro />} />
 
         {/* Rutas protegidas */}
         <Route
@@ -29,6 +32,22 @@ function App() {
           element={
             <PrivateRoute>
               <Rutinas />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/rutinas/crear"
+          element={
+            <PrivateRoute>
+              <CrearRutina />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/rutinas/:id"
+          element={
+            <PrivateRoute>
+              <RutinaDetalle />
             </PrivateRoute>
           }
         />

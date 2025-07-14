@@ -1,38 +1,29 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
 
-export default function Login() {
+export default function Registro() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/login', {
+      const res = await fetch('http://localhost:5000/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ name, email, password }),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.msg || 'Error al iniciar sesión');
+        throw new Error(data.msg || 'Error al registrarse');
       }
-
-      const newUser = {
-        email: data.user.email,
-        name: data.user.name,
-        isAdmin: data.user.isAdmin || false
-      };
-
-      login(newUser, data.token);
-      navigate('/dashboard');
-
+      
+      navigate('/login');
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -40,9 +31,20 @@ export default function Login() {
   };
 
   return (
-    <div className="container login">
-      <h2 className="login__titulo">Iniciar sesión</h2>
+    <div className="container registro">
+      <h2 className="registro__titulo">Crear cuenta</h2>
       <form className="form-container" onSubmit={handleSubmit}>
+        <label>
+          Nombre:
+          <input
+            className="input"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </label>
+
         <label>
           Email:
           <input
@@ -65,11 +67,11 @@ export default function Login() {
           />
         </label>
 
-        <button className="btn" type="submit">Entrar</button>
+        <button className="btn" type="submit">Registrarse</button>
       </form>
 
       <p className="text-muted">
-        ¿No tienes una cuenta? <Link to="/registro" className="btn btn--enlace">Regístrate</Link>
+        ¿Ya tienes cuenta? <Link to="/login" className="btn btn--enlace">Inicia sesión</Link>
       </p>
     </div>
   );

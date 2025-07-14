@@ -1,16 +1,16 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+// Variables globales 
+@use './variables' as *;
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #121212;
-  color: #f0f0f0;
-}
+// Reset básico 
+@use './reset' as *;
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+// Carga de fuentes personalizadas
+@use './fonts' as *;
+
+// Tipografía general y títulos
+@use './typography' as *;
+
+// Utilidades: contenedores, clases auxiliares, botones genéricos
+@use './utilities' as *;
+// Componentes individuales (Navbar, RutinaCard, ComentarioForm, etc.)
+@use './components' as *;
