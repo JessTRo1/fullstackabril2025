@@ -11,7 +11,7 @@ const rutinaSchema = new mongoose.Schema({
     titulo: { type: String, required: true },
     imagen: { type: String },
     descripcion: { type: String },
-    nivel: { type: String, enum: ['Principiante', 'Intermedio', 'Avanzado'], default: 'principiante' },
+    nivel: { type: String, enum: ['principiante', 'intermedio', 'avanzado'], default: 'principiante' },
     ejercicios: [{ type: String }],
     autor: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // Admin que la crea
     comentarios: [comentarioSchema], // Comentarios de usuarios

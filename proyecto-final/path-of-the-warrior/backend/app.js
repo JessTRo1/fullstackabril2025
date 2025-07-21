@@ -13,6 +13,7 @@ app.use('/api/auth', require('./routes/authRoutes'));
 // Rutas protegidas
 app.use('/api/protected', require('./routes/protectedRoutes'));
 app.use('/api/rutinas', require('./routes/rutinaRoutes'));
+app.use('/api/user', require('./routes/userRoutes'));
 
 // Ruta de prueba
 app.get('/', (req, res) => {

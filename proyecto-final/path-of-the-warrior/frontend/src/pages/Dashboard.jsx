@@ -1,61 +1,74 @@
 import { useAuth } from '../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import RutinaCard from '../components/RutinaCard';
 
 export default function Dashboard() {
-  const { user, token, logout } = useAuth();
-  const navigate = useNavigate();
-
-  const [profileData, setProfileData] = useState(null);
-  const [error, setError] = useState('');
-
-  const handleLogout = () => {
-    logout();             // Limpia el contexto y el localStorage
-    navigate('/login');   // Redirige al login
-  };
-
-  // Cargar datos protegidos al montar
+  const { user, token } = useAuth();
+  const [rutinasHechas, setRutinasHechas] = useState([]);
+  const [ranking, setRanking] = useState([]);
 
   useEffect(() => {
     if (!token) return;
 
-    const fetchProtectedData = async () => {
+    const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/protected/profile', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
+        // Obtener rutinas hechas del usuario 
+        const resHechas = await fetch('http://localhost:5000/api/user/rutinas-hechas', {
+          headers: { Authorization: `Bearer ${token}` }
         });
+        const dataHechas = await resHechas.json();
+        setRutinasHechas(dataHechas);
 
-        const data = await res.json();
-
-        if (!res.ok) throw new Error(data.msg || 'Acceso no autorizado');
-
-        setProfileData(data);
+        // Obtener ranking
+        const resRanking = await fetch('http://localhost:5000/api/user/ranking', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const dataRanking = await resRanking.json();
+        setRanking(dataRanking);
       } catch (err) {
-        setError(err.message);
+        console.error('Error al cargar datos del dashboard:', err.message);
       }
     };
 
-    fetchProtectedData();
+    fetchData();
   }, [token]);
 
   return (
     <div className="dashboard">
-      <h1>Bienvenido, {user?.name}</h1>
+      <h1 className="dashboard__titulo">Bienvenido, {user?.name}</h1>
 
-      <button onClick={handleLogout}>Cerrar sesión</button>
-
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-
-      {profileData ? (
-        <div>
-          <h3>Datos protegidos del backend:</h3>
-          <pre>{JSON.stringify(profileData, null, 2)}</pre>
+      <div className="dashboard__contenido">
+        {/* Rutinas completadas */}
+        <div className="dashboard__rutinas">
+          <h2>Rutinas Completadas</h2>
+          {rutinasHechas.length === 0 ? (
+            <p className="text-muted">Aún no has hecho ninguna rutina.</p>
+          ) : (
+            <div className="rutinas__grid">
+              {rutinasHechas.map(rutina => (
+                <RutinaCard key={rutina._id} rutina={rutina} />
+              ))}
+            </div>
+          )}
         </div>
-      ) : (
-        <p>Cargando datos protegidos...</p>
-      )}
+
+        {/* Ranking */}
+        <div className="dashboard__ranking">
+          <h2>Ranking</h2>
+          <ul className="ranking__lista">
+            {ranking.map((user, index) => (
+              <li key={index} className="ranking__item">
+                <span className="ranking__posicion">
+                  {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `${index + 1}.`}
+                </span>
+                <img src={user.avatar || '/default-avatar.png'} alt={user.name} className="ranking__avatar" />
+                <span className="ranking__nombre">{user.name}</span>
+                <span className="ranking__contador">{user.rutinasCompletadas} rutinas</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

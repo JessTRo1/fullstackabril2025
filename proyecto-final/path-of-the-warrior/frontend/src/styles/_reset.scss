@@ -11,17 +11,13 @@
 }
 
 // ELEMENTOS BASE
-html {
-  font-size: 100%; 
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
-  background-color: #1a1a1a;
-  color: $color-text;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(33, 33, 33);
 }
 
 // LISTAS
@@ -48,4 +44,5 @@ button {
 img {
   max-width: 100%;
   display: block;
+  border-radius: $border-radius;
 }

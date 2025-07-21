@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import ComentarioForm from '../components/ComentarioForm';
 import { useAuth } from '../hooks/useAuth';
 
@@ -9,23 +9,37 @@ export default function RutinaDetalle() {
   const [loading, setLoading] = useState(true);
   const [comentarioEditando, setComentarioEditando] = useState(null);
   const [textoEditado, setTextoEditado] = useState('');
-  const { token, user } = useAuth();
+  const [rutinaHecha, setRutinaHecha] = useState(false);
 
+  const { token, user } = useAuth();
+  const navigate = useNavigate();
+
+  // Obtener rutina y verificar si el usuario la ha marcado como hecha
   useEffect(() => {
-    fetch(`http://localhost:5000/api/rutinas/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then(res => res.json())
-      .then(data => {
-        setRutina(data);
+    const fetchDatos = async () => {
+      try {
+        const [rutinaRes, hechasRes] = await Promise.all([
+          fetch(`http://localhost:5000/api/rutinas/${id}`, {
+            headers: { Authorization: `Bearer ${token}` }
+          }),
+          fetch(`http://localhost:5000/api/user/rutinas-hechas`, {
+            headers: { Authorization: `Bearer ${token}` }
+          })
+        ]);
+
+        const rutinaData = await rutinaRes.json();
+        const hechasData = await hechasRes.json();
+
+        setRutina(rutinaData);
+        setRutinaHecha(hechasData.some(r => r._id === id));
         setLoading(false);
-      })
-      .catch(err => {
-        console.error('Error al cargar rutina:', err);
+      } catch (err) {
+        console.error('Error al cargar datos:', err);
         setLoading(false);
-      });
+      }
+    };
+
+    fetchDatos();
   }, [id, token]);
 
   const handleAgregarComentario = (nuevoComentario) => {
@@ -85,6 +99,40 @@ export default function RutinaDetalle() {
     }
   };
 
+  const handleEliminarRutina = async () => {
+    const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar esta rutina?');
+    if (!confirmacion) return;
+
+    try {
+      const res = await fetch(`http://localhost:5000/api/rutinas/${id}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      if (!res.ok) throw new Error('Error al eliminar rutina');
+      alert('Rutina eliminada con éxito');
+      navigate('/rutinas');
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
+  const toggleRutinaHecha = async () => {
+    try {
+      const res = await fetch(`http://localhost:5000/api/user/rutinas-hechas/${id}`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` }
+      });
+
+      await res.json();
+      setRutinaHecha(!rutinaHecha);
+    } catch (err) {
+      console.error('Error al marcar rutina:', err);
+    }
+  };
+
   if (loading) return <p className="text-muted">Cargando rutina...</p>;
   if (!rutina) return <p className="text-muted">Rutina no encontrada</p>;
 
@@ -94,6 +142,19 @@ export default function RutinaDetalle() {
       <img src={rutina.imagen} alt={rutina.titulo} className="rutina-detalle__imagen" />
       <p className="rutina-detalle__nivel">Nivel: {rutina.nivel}</p>
       <p className="rutina-detalle__descripcion">{rutina.descripcion}</p>
+
+      {token && (
+        <div className="checkbox">
+          <label>
+            <input
+              type="checkbox"
+              checked={rutinaHecha}
+              onChange={toggleRutinaHecha}
+            />{' '}
+            Marcar como hecha
+          </label>
+        </div>
+      )}
 
       <h3 className="rutina-detalle__subtitulo">Ejercicios:</h3>
       <ul className="rutina-detalle__lista">
@@ -143,6 +204,13 @@ export default function RutinaDetalle() {
           token={token}
           onNuevoComentario={handleAgregarComentario}
         />
+      )}
+
+      {user?.isAdmin && (
+        <div className="text-center m-2">
+          <Link to={`/rutinas/${id}/editar`} className="btn">Editar rutina</Link>
+          <button className="btn btn--eliminar" onClick={handleEliminarRutina}>Eliminar rutina</button>
+        </div>
       )}
     </div>
   );

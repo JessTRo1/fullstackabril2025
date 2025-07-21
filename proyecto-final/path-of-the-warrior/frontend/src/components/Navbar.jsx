@@ -13,10 +13,9 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar__left">
-        <span className="navbar__logo">Path of the Warrior</span>
+        <Link to="/" className="navbar__logo">Path of the Warrior</Link>
         <Link to="/dashboard" className="navbar__link">Dashboard</Link>
         <Link to="/rutinas" className="navbar__link">Rutinas</Link>
-        <Link to="/desafios" className="navbar__link">Desafíos</Link>
       </div>
 
       <div className="navbar__right">
@@ -24,7 +23,7 @@ export default function Navbar() {
           <>
             <Link to="/perfil" className="navbar__user">
               <img
-                src="/avatar.png"
+                src={user?.avatar || '/avatars/avatar1.png'}
                 alt="avatar"
                 className="navbar__avatar"
               />
