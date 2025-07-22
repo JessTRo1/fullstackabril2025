@@ -34,6 +34,10 @@
   top: 0;
   z-index: 3;
 
+  @include respond-to(tablet) {
+    padding: .5rem;
+  }
+
   &__logo {
     font-family: $font-heading;
     font-size: 1.8rem;
@@ -57,6 +61,7 @@
     }
   }
 
+
   &__avatar {
     width: 2.5rem;
     height: 2.5rem;
@@ -64,6 +69,7 @@
     object-fit: cover;
     cursor: pointer;
   }
+
 }
 
 // RUTINA CARD
@@ -88,7 +94,7 @@
     object-fit: cover;
   }
 
-  
+
 
   &__titulo {
     font-family: $font-heading;
@@ -113,6 +119,18 @@
     grid-template-rows: repeat(3, 60vh);
     grid-auto-flow: row;
     justify-items: center;
+
+    @include respond-to(desktop) {
+      grid-template-rows: repeat(3, 40vh);
+    }
+    @include respond-to(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 45vh);
+    }
+    @include respond-to(mobile) {
+      grid-template-rows: repeat(6, 30vh);
+    }
+
   }
 }
 
@@ -242,6 +260,16 @@
       background-position: center;
       background-attachment: fixed;
       background-repeat: no-repeat;
+
+      @include respond-to(ultra) {
+        height: 80vh;
+      }
+      @include respond-to(tablet) {
+        height: 80vh;
+      }
+      @include respond-to(mobile) {
+        height: 68vh;
+      }
     }
 
     .fondo-1 {
@@ -266,13 +294,29 @@
     margin: 4rem 0;
     padding: 5rem 2rem;
     border-radius: $border-radius;
-    width: 90%;
-    max-width: 900px;
+    width: 55vw;
+
+    @include respond-to(ultra) {
+      width: 80vw;
+    }
+
+    @include respond-to(tablet) {
+      width: 80vw;
+      padding: .5rem;
+    }
+    @include respond-to(mobile) {
+      width: 90vw;
+      padding: 1rem;
+    }
   }
 
   &__frase-contenedor {
     margin: 2rem auto;
     max-width: 40vw;
+
+    @include respond-to(mobile) {
+      max-width: 70vw;
+    }
   }
 
   &__frase {
@@ -315,17 +359,25 @@
     gap: 2rem;
 
     .feature {
-      max-width: 20vw;
-      background: white;
+      width: 20vw;
+      background: $color-text;
       padding: 2rem;
       border-radius: $border-radius;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       text-align: left;
 
+      @include respond-to(tablet) {
+        width: 30vw;
+      }
+
+      @include respond-to(mobile) {
+        width: 40vw;
+      }
+
       &__titulo {
         font-weight: bold;
         font-size: 1.3rem;
-        text-shadow: 0px 4px 8px rgba($color-bg-dark, 1);
+        text-shadow: 0px 4px 8px rgba($color-bg-dark, 1); 
       }
 
       &__texto {

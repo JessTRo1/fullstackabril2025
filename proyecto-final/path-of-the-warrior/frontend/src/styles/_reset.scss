@@ -1,9 +1,7 @@
 @use './variables' as *;
 
 // RESET GLOBAL
-*,
-*::before,
-*::after {
+* {
   margin: 0;
   padding: 0;
   border: 0;
@@ -46,3 +44,5 @@ img {
   display: block;
   border-radius: $border-radius;
 }
+
+
