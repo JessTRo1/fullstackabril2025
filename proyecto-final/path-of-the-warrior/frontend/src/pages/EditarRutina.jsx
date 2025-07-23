@@ -13,6 +13,7 @@ export default function EditarRutina() {
   const [imagen, setImagen] = useState('');
   const [ejercicios, setEjercicios] = useState([]);
 
+  // Obtener datos actuales de la rutina para editar
   useEffect(() => {
     const obtenerRutina = async () => {
       try {
@@ -33,16 +34,19 @@ export default function EditarRutina() {
     obtenerRutina();
   }, [id, token]);
 
+  // Actualizar ejercicio individual
   const actualizarEjercicio = (index, value) => {
     const nuevos = [...ejercicios];
     nuevos[index] = value;
     setEjercicios(nuevos);
   };
 
+  // Añadir nuevo ejercicio
   const añadirEjercicio = () => {
     setEjercicios([...ejercicios, '']);
   };
 
+  // Subida de imagen
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -54,6 +58,7 @@ export default function EditarRutina() {
     reader.readAsDataURL(file);
   };
 
+  // Envío de cambios al servidor
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

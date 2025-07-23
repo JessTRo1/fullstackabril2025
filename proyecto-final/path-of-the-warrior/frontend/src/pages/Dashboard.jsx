@@ -1,18 +1,21 @@
+// Panel de usuario: muestra rutinas completadas y ranking general
 import { useAuth } from '../hooks/useAuth';
 import { useState, useEffect } from 'react';
 import RutinaCard from '../components/RutinaCard';
 
 export default function Dashboard() {
   const { user, token } = useAuth();
+  // Estados locales
   const [rutinasHechas, setRutinasHechas] = useState([]);
   const [ranking, setRanking] = useState([]);
 
+  // Obtener datos al cargar el componente
   useEffect(() => {
     if (!token) return;
 
+    // Obtener rutinas completadas del usuario
     const fetchData = async () => {
       try {
-        // Obtener rutinas hechas del usuario 
         const resHechas = await fetch('http://localhost:5000/api/user/rutinas-hechas', {
           headers: { Authorization: `Bearer ${token}` }
         });
@@ -33,6 +36,7 @@ export default function Dashboard() {
     fetchData();
   }, [token]);
 
+  // Renderizado de rutinas completadas y ranking
   return (
     <div className="dashboard">
       <h1 className="dashboard__titulo">Bienvenido, {user?.name}</h1>

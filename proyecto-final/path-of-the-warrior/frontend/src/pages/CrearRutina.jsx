@@ -1,7 +1,11 @@
+// Formulario para crear una nueva rutina de entrenamiento
+// Incluye título, descripción, nivel, imagen y ejercicios
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
+// Estados para los datos del formulario
 export default function CrearRutina() {
   const [titulo, setTitulo] = useState('');
   const [descripcion, setDescripcion] = useState('');
@@ -11,13 +15,14 @@ export default function CrearRutina() {
   const { token } = useAuth();
   const navigate = useNavigate();
 
+  // Enviar la rutina al backend
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // Validación: al menos un ejercicio
     if (!ejercicios.some(ej => ej.trim() !== '')) {
       return alert('Añade al menos un ejercicio válido');
     }
-
+    // Envío de datos al servidor
     try {
       const res = await fetch('http://localhost:5000/api/rutinas', {
         method: 'POST',
@@ -35,22 +40,22 @@ export default function CrearRutina() {
       alert(err.message);
     }
   };
-
+  // Actualizar ejercicios en tiempo real
   const actualizarEjercicio = (index, value) => {
     const nuevos = [...ejercicios];
     nuevos[index] = value;
     setEjercicios(nuevos);
   };
-
+  // Añadir un nuevo campo de ejercicio
   const añadirEjercicio = () => {
     setEjercicios([...ejercicios, '']);
   };
-
+  // Eliminar un ejercicio
   const eliminarEjercicio = (index) => {
     const nuevos = ejercicios.filter((_, i) => i !== index);
     setEjercicios(nuevos);
   };
-
+  // Convertir imagen a base64 y guardarla en estado
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;

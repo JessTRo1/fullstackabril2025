@@ -1,20 +1,22 @@
+// Vista detallada de una rutina individual, incluyendo comentarios y acciones según rol
+
 import { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import ComentarioForm from '../components/ComentarioForm';
 import { useAuth } from '../hooks/useAuth';
 
 export default function RutinaDetalle() {
-  const { id } = useParams();
-  const [rutina, setRutina] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { id } = useParams(); // ID de la rutina desde la URL
+  const [rutina, setRutina] = useState(null); // Datos de la rutina
+  const [loading, setLoading] = useState(true); // Control de carga
   const [comentarioEditando, setComentarioEditando] = useState(null);
   const [textoEditado, setTextoEditado] = useState('');
-  const [rutinaHecha, setRutinaHecha] = useState(false);
+  const [rutinaHecha, setRutinaHecha] = useState(false); // Si el usuario marcó esta rutina como hecha
 
   const { token, user } = useAuth();
   const navigate = useNavigate();
 
-  // Obtener rutina y verificar si el usuario la ha marcado como hecha
+  // Carga de datos inicial: rutina + rutinas hechas del usuario
   useEffect(() => {
     const fetchDatos = async () => {
       try {
@@ -42,6 +44,7 @@ export default function RutinaDetalle() {
     fetchDatos();
   }, [id, token]);
 
+  // Añadir nuevo comentario al estado local
   const handleAgregarComentario = (nuevoComentario) => {
     setRutina(prev => ({
       ...prev,
@@ -49,6 +52,7 @@ export default function RutinaDetalle() {
     }));
   };
 
+  // Eliminar comentario (si el usuario es dueño o admin)
   const handleEliminarComentario = async (comentarioId) => {
     try {
       const res = await fetch(`http://localhost:5000/api/rutinas/${id}/comentarios/${comentarioId}`, {
@@ -67,11 +71,13 @@ export default function RutinaDetalle() {
     }
   };
 
+  // Comenzar edición de comentario
   const handleEditarComentario = (comentario) => {
     setComentarioEditando(comentario._id);
     setTextoEditado(comentario.texto);
   };
 
+  // Guardar comentario editado
   const guardarComentarioEditado = async (comentarioId) => {
     try {
       const res = await fetch(`http://localhost:5000/api/rutinas/${id}/comentarios/${comentarioId}`, {
@@ -99,6 +105,7 @@ export default function RutinaDetalle() {
     }
   };
 
+  // Eliminar rutina completa (solo admin)
   const handleEliminarRutina = async () => {
     const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar esta rutina?');
     if (!confirmacion) return;
@@ -119,6 +126,7 @@ export default function RutinaDetalle() {
     }
   };
 
+  // Alternar "rutina hecha" por parte del usuario
   const toggleRutinaHecha = async () => {
     try {
       const res = await fetch(`http://localhost:5000/api/user/rutinas-hechas/${id}`, {
@@ -143,6 +151,7 @@ export default function RutinaDetalle() {
       <p className="rutina-detalle__nivel">Nivel: {rutina.nivel}</p>
       <p className="rutina-detalle__descripcion">{rutina.descripcion}</p>
 
+      {/* Checkbox para marcar rutina como hecha */}
       {token && (
         <div className="checkbox">
           <label>
@@ -156,6 +165,7 @@ export default function RutinaDetalle() {
         </div>
       )}
 
+      {/* Lista de ejercicios */}
       <h3 className="rutina-detalle__subtitulo">Ejercicios:</h3>
       <ul className="rutina-detalle__lista">
         {rutina.ejercicios.map((ej, index) => (
@@ -163,6 +173,7 @@ export default function RutinaDetalle() {
         ))}
       </ul>
 
+      {/* Sección de comentarios */}
       <h3 className="rutina-detalle__subtitulo">Comentarios:</h3>
       <ul className="rutina-detalle__comentarios">
         {rutina.comentarios.length === 0 ? (
@@ -198,6 +209,7 @@ export default function RutinaDetalle() {
         )}
       </ul>
 
+      {/* Formulario de nuevo comentario */}
       {token && (
         <ComentarioForm
           rutinaId={id}
@@ -206,6 +218,7 @@ export default function RutinaDetalle() {
         />
       )}
 
+      {/* Acciones para el administrador */}
       {user?.isAdmin && (
         <div className="text-center m-2">
           <Link to={`/rutinas/${id}/editar`} className="btn">Editar rutina</Link>

@@ -3,15 +3,18 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
 export default function Login() {
+  // Estado local para los campos
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  // Inicio de sesión
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      // Petición al backend
       const res = await fetch('http://localhost:5000/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -30,6 +33,7 @@ export default function Login() {
         isAdmin: data.user.isAdmin || false
       };
 
+      // Guardar usuario y token en contexto + redireccionar al dashboard
       login(newUser, data.token);
       navigate('/dashboard');
 

@@ -1,4 +1,5 @@
 
+// AvatarSelector.jsx
 export default function AvatarSelector({ selectedAvatar, onChange }) {
     const avatars = [
         '/avatars/avatar1.png',
@@ -14,6 +15,9 @@ export default function AvatarSelector({ selectedAvatar, onChange }) {
         '/avatars/avatar11.png',
         '/avatars/avatar12.png',
     ];
+
+    // Renderiza los avatares
+    // y aplica la clase 'selected' al avatar seleccionado
     return (
         <div className="avatar-selector">
             {avatars.map((avatar, index) => (

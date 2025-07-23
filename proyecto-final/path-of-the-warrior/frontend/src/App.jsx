@@ -1,29 +1,38 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Páginas principales importadas
 import Inicio from './pages/Inicio';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Rutinas from './pages/Rutinas';
-import PrivateRoute from './components/PrivateRoute';
-import Navbar from './components/Navbar';
 import Perfil from './pages/Perfil';
 import RutinaDetalle from './pages/RutinaDetalle';
 import Registro from './pages/Registro';
 import CrearRutina from './pages/CrearRutina';
 import EditarRutina from './pages/EditarRutina';
-import Footer from './components/Footer';
 
+// Componentes de interfaz compartida
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import PrivateRoute from './components/PrivateRoute'; // Componente para proteger rutas privadas
 
 function App() {
   return (
+    // Toda la app en el componente Router para habilitar navegación por rutas
     <Router>
-      <div className="layout"> 
+      <div className="layout">
+        {/* Navbar fijo */}
         <Navbar />
-        <main className="layout__main"> 
+
+        {/* Contenido principal */}
+        <main className="layout__main">
           <Routes>
+            {/* Rutas públicas */}
             <Route path="/" element={<Inicio />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<Registro />} />
 
+            {/* Rutas privadas protegidas: solo accesibles si hay sesión activa */}
             <Route
               path="/dashboard"
               element={
@@ -74,6 +83,8 @@ function App() {
             />
           </Routes>
         </main>
+
+        {/* Footer fijo */}
         <Footer />
       </div>
     </Router>

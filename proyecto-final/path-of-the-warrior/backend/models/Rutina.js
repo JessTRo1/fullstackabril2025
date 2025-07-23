@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Definición del esquema para los comentarios
 const comentarioSchema = new mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     nombreUsuario: { type: String },
@@ -7,6 +8,7 @@ const comentarioSchema = new mongoose.Schema({
     fecha: { type: Date, default: Date.now }
 });
 
+// Definición del esquema para las rutinas
 const rutinaSchema = new mongoose.Schema({
     titulo: { type: String, required: true },
     imagen: { type: String },

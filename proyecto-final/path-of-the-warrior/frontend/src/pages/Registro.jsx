@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 export default function Registro() {
+  // Estado para los campos del formulario
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+   // Envía los datos del nuevo usuario al servidor
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -23,6 +25,7 @@ export default function Registro() {
         throw new Error(data.msg || 'Error al registrarse');
       }
       
+      // Redirige al login tras registrarse con éxito
       navigate('/login');
     } catch (err) {
       console.error(err);

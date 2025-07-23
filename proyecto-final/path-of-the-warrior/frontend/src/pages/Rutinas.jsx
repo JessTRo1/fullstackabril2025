@@ -1,3 +1,5 @@
+// Vista general con todas las rutinas disponibles y botón para crear nuevas (si el usuario es admin)
+
 import { useEffect, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import RutinaCard from '../components/RutinaCard';
@@ -7,6 +9,7 @@ export default function Rutinas() {
   const [rutinas, setRutinas] = useState([]);
   const { token, user } = useAuth();
 
+  // Cargar todas las rutinas desde la API
   useEffect(() => {
     const fetchRutinas = async () => {
       try {
@@ -31,6 +34,7 @@ export default function Rutinas() {
     <div className="rutinas">
       <h2>Rutinas disponibles</h2>
 
+      {/* Botón visible solo si el usuario es admin */}
       {isAdmin && (
         <div className="text-center m-2">
           <Link to="/rutinas/crear" className="btn">
@@ -39,6 +43,7 @@ export default function Rutinas() {
         </div>
       )}
 
+      {/* Grid con tarjetas de rutina */}
       <div className="rutinas__grid">
         {rutinas.map(rutina => (
           <RutinaCard key={rutina._id} rutina={rutina} />
