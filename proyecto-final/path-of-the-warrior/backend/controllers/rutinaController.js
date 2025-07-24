@@ -149,7 +149,7 @@ const eliminarComentario = async (req, res) => {
       return res.status(403).json({ msg: 'No tienes permiso para eliminar este comentario' });
     }
 
-    comentario.remove();
+    rutina.comentarios.pull(comentarioId);
     await rutina.save();
 
     res.json({ msg: 'Comentario eliminado con éxito' });
